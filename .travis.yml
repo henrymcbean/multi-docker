@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t henrymcbean/react-test -f ./client/Dockerfile.dev ./client/Dockerfile.dev
+  - docker build -t henrymcbean/react-test -f ./client/Dockerfile.dev
 
 script:
   # -- -- coverage - Removed from command below, Not working, used -e CI=true
