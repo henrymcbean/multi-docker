@@ -1,0 +1,19 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t henrymcbean/react-test -f ./client/Dockerfile.dev ./client/Dockerfile.dev
+
+script:
+  - docker run -e CI=true henrymcbean/react-test npm test # -- -- coverage - Not working, used -e CI=true
+
+after_success:
+  - docker build -t henrymcbean/multi-client ./client
+  - docker build -t henrymcbean/multi-nginx ./nginx
+  - docker build -t henrymcbean/multi-server ./server
+  - docker build -t henrymcbean/multi-worker ./worker
+
+  # Log into the docker CLI
+
+  # Take those images and push them to docker hub
