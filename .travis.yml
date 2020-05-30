@@ -6,7 +6,8 @@ before_install:
   - docker build -t henrymcbean/react-test -f ./client/Dockerfile.dev ./client/Dockerfile.dev
 
 script:
-  - docker run -e CI=true henrymcbean/react-test npm test # -- -- coverage - Not working, used -e CI=true
+  # -- -- coverage - Removed from command below, Not working, used -e CI=true
+  - docker run -e CI=true henrymcbean/react-test npm test 
 
 after_success:
   - docker build -t henrymcbean/multi-client ./client
