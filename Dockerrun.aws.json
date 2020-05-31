@@ -5,8 +5,7 @@
             "name": "client",
             "image": "henrymcbean/multi-client",
             "hostname": "client",
-            "essential": false,
-            "memory": 128
+            "essential": false
         },
         {
             "name": "server",
